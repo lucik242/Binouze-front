@@ -46,7 +46,7 @@ class AddPhone extends React.Component {
 			type: "",
 			price: "",
 			rating: "",
-			warranty: "",
+			warranty_years: "",
 			 available: "",
 		};
 
@@ -71,7 +71,7 @@ class AddPhone extends React.Component {
 		this.setState({ rating: event.target.value });
 	}
 	handleWarrantyChange(event) {
-		this.setState({ warranty: event.target.value });
+		this.setState({ warranty_years: event.target.value });
 	}
 	handleAvailableChange(event) {
 		this.setState({ available: event.target.value });
@@ -84,7 +84,7 @@ class AddPhone extends React.Component {
 			type: this.state.type,
 			price: this.state.price,
 			rating: this.state.rating,
-			warranty: this.state.warranty,
+			warranty_years: this.state.warranty_years,
 			// available: this.state.available
 		};
 
@@ -164,13 +164,13 @@ class AddPhone extends React.Component {
 							autoFocus
 						/>
 						 <TextField
-							warranty={this.state.value}
+							warranty_years={this.state.value}
 							onChange={this.handleWarrantyChange}
 							variant="outlined"
 							margin="normal"
 							required
 							fullWidth
-							id="warranty"
+							id="warranty_years"
 							label="Warranty"
 							autoFocus
 						/>  

@@ -6,7 +6,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-
+import Button from '@material-ui/core/Button';
 import axios from "axios";
 
 
@@ -53,13 +53,9 @@ class AllPhone extends Component {
 		console.log("ici");
 		console.log(item);
 
-		axios
-			.delete("http://localhost:8080/phone/deletePhone/" + item._id)
-
+		axios.delete("http://localhost:8080/phone/deletePhone/" + item._id)
 			.then(res => {
-				//console.log("FFYUFYFTYFTYG");
-
-				console.log(res.data);
+			console.log(res.data);
 				this.componentDidMount();
 			})
 			.catch(error => {
@@ -81,7 +77,7 @@ class AllPhone extends Component {
 
 		return (
 			<Paper className={classes.root}>
-				{/* <div>{item}</div> */}
+				
 				<Table className={classes.table} aria-label="customized table">
 					<TableHead>
 						<TableRow>
@@ -90,8 +86,8 @@ class AllPhone extends Component {
 							<StyledTableCell>Price</StyledTableCell>
 							<StyledTableCell>Rating</StyledTableCell>
 							<StyledTableCell>Warranty</StyledTableCell>
-							<StyledTableCell>Edit</StyledTableCell>
-							<StyledTableCell>Warranty</StyledTableCell>
+							<StyledTableCell>Modifier</StyledTableCell>
+							<StyledTableCell>Supprimer</StyledTableCell>
 						</TableRow>
 					</TableHead>
 					<TableBody>
@@ -103,30 +99,19 @@ class AllPhone extends Component {
 								<StyledTableCell>{item.type}</StyledTableCell>
 								<StyledTableCell>{item.price}</StyledTableCell>
 								<StyledTableCell>{item.rating}</StyledTableCell>
-								<StyledTableCell>{item.warranty}</StyledTableCell>
+								<StyledTableCell>{item.warranty_years}</StyledTableCell>
 								<StyledTableCell>
-
+									<Button variant="contained" 
+									color="primary" className={classes.button}>
+									Modifier
+    									</Button>
 								</StyledTableCell>
 								<StyledTableCell>
-									{item._id}
-
-									{/* <button
-											type="submit"
-											name={item._id}
-											id="toto"
-											//onClick={e => this.removeItem(e, item)}
-											// onClick={this.state.id}
-											onClick={() => {
-												this.deleteP(item._id);
-											}}
-											key={item._id}
-										>
-											Delete
-										</button> */}
-
-									<button key={item.id} onClick={this.delete.bind(this, item)}>
-										Delete
-									</button>
+									<Button
+									 key={item.id} onClick={this.delete.bind(this, item)} 
+									 variant="contained" color="secondary" className={classes.button}>
+									 Delete
+     									 </Button>
 								</StyledTableCell>
 							</StyledTableRow>
 						))}
