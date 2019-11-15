@@ -6,9 +6,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { Redirect } from "react-router";
-import { withRouter } from "react-router-dom";
+
 import axios from "axios";
 
 
@@ -38,15 +36,13 @@ const useStyles = makeStyles(theme => ({
 		marginTop: theme.spacing(3),
 		overflowX: "auto"
 	}
-	// table: {
-	//         minWidth: 700,
-	// },
+	
 }));
 
 class AllPhone extends Component {
-	constructor(props) {
-		super(props);
-	}
+	// constructor(props) {
+	// 	super(props);
+	// }
 
 	state = {
 		items: [],

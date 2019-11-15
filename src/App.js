@@ -1,7 +1,7 @@
 import React from 'react';
 import Home from './Screens/Home'
-import Nav from './Components/Nav'
-import AddPhone11 from './Screens/AddPhone11'
+
+import AddPhone from './Screens/AddPhone'
 import Edit from './Screens/Edit'
 import "./App.css";
 
@@ -9,7 +9,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+
 } from "react-router-dom";
 
 
@@ -22,7 +22,7 @@ function App() {
 
 				<Switch>
 					<Route path="/add">
-						<AddPhone11 />
+						<AddPhone />
 					</Route>
 					<Route path="/">
 						<Home />
