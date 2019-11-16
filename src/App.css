@@ -44,3 +44,8 @@ h3{
 #mar{
   margin-bottom:10rem ;
 }
+
+#footer{
+  height: 10rem;
+  color: rgb(32, 17, 17);
+}

@@ -1,8 +1,8 @@
 import React from 'react';
 import Home from './Screens/Home'
-
 import Edit from './Screens/Edit'
 import Addd from './Screens/Addd'
+import Footer from './Components/Footer'
 import "./App.css";
 
 import {
@@ -19,6 +19,7 @@ function App() {
 		<Router>
 			<div>
 				{/* <Nav /> */}
+				
 
 				<Switch>
 					<Route path="/add">
@@ -30,8 +31,10 @@ function App() {
 					<Route path="/Edit">
 						<Edit />
 					</Route>
+
 				</Switch>
 			</div>
+		  <Footer />
 		</Router>
 	);
 }
