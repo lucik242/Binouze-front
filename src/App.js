@@ -1,8 +1,8 @@
 import React from 'react';
 import Home from './Screens/Home'
 
-import AddPhone from './Screens/AddPhone'
 import Edit from './Screens/Edit'
+import Addd from './Screens/Addd'
 import "./App.css";
 
 import {
@@ -22,7 +22,7 @@ function App() {
 
 				<Switch>
 					<Route path="/add">
-						<AddPhone />
+						<Addd />
 					</Route>
 					<Route path="/">
 						<Home />

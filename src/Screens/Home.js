@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import AddPhone from './AddPhone'
+
 import AllPhone from './AllPhone'
+import Addd from './Addd'
 
 
 
@@ -9,7 +10,8 @@ export default class Home extends Component {
                 return (
                         <div className="Home">
                                 <AllPhone />
-                                <AddPhone />
+                                <Addd/>
+                           
            
                           </div>
                 )

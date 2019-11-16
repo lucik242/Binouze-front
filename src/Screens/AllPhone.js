@@ -7,6 +7,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Button from '@material-ui/core/Button';
+import Checkbox from '@material-ui/core/Checkbox';
 import axios from "axios";
 
 
@@ -64,7 +65,8 @@ class AllPhone extends Component {
 	}
 
 	componentDidMount() {
-		axios.get("http://localhost:8080/phone/allPhone").then(res => {
+		axios.get("http://localhost:8080/phone/allPhone")
+		.then(res => {
 			console.log(res);
 			this.setState({ items: res.data });
 		});
@@ -86,6 +88,7 @@ class AllPhone extends Component {
 							<StyledTableCell>Price</StyledTableCell>
 							<StyledTableCell>Rating</StyledTableCell>
 							<StyledTableCell>Warranty</StyledTableCell>
+							<StyledTableCell>Available</StyledTableCell>
 							<StyledTableCell>Modifier</StyledTableCell>
 							<StyledTableCell>Supprimer</StyledTableCell>
 						</TableRow>
@@ -101,7 +104,14 @@ class AllPhone extends Component {
 								<StyledTableCell>{item.rating}</StyledTableCell>
 								<StyledTableCell>{item.warranty_years}</StyledTableCell>
 								<StyledTableCell>
+									<Checkbox
+										checked={item.available}
+										color="Secondary"										
+									/>
+								</StyledTableCell>
+								<StyledTableCell>
 									<Button variant="contained" 
+									//	key={item.id} onClick={this.props()}
 									color="primary" className={classes.button}>
 									Modifier
     									</Button>
