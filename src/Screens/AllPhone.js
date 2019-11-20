@@ -8,11 +8,9 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
+//import Link from '@material-ui/core/Link';
+import { Link } from 'react-router-dom';
 import axios from "axios";
-
-
-
-
 const StyledTableCell = withStyles(theme => ({
 	head: {
 		backgroundColor: theme.palette.common.black,
@@ -41,12 +39,11 @@ const useStyles = makeStyles(theme => ({
 }));
 
 class AllPhone extends Component {
-	// constructor(props) {
-	// 	super(props);
-	// }
-
+	
+	
 	state = {
 		items: [],
+	
 
 	};
 
@@ -75,9 +72,10 @@ class AllPhone extends Component {
 
 	render() {
 		const { classes } = this.props;
-
+		//const Items = this.state.items.map((item, i)=> (
 
 		return (
+		
 			<Paper className={classes.root}>
 				
 				<Table className={classes.table} aria-label="customized table">
@@ -94,10 +92,12 @@ class AllPhone extends Component {
 						</TableRow>
 					</TableHead>
 					<TableBody>
-						{this.state.items.map(item => (
-							<StyledTableRow key={item.name}>
+					 {this.state.items.map(item => ( 
+						
+							<StyledTableRow key={item.name} >
 								<StyledTableCell component="th" scope="row">
 									{item.name}
+								 	
 								</StyledTableCell>
 								<StyledTableCell>{item.type}</StyledTableCell>
 								<StyledTableCell>{item.price}</StyledTableCell>
@@ -109,16 +109,27 @@ class AllPhone extends Component {
 										color="Secondary"										
 									/>
 								</StyledTableCell>
+								
+								
 								<StyledTableCell>
-									<Button variant="contained" 
-									//	key={item.id} onClick={this.props()}
-									color="primary" className={classes.button}>
-									Modifier
-    									</Button>
+								 {/* <Link to={`/Edit${item._id}`}> */}
+								 <Link to={{ pathname: '/Edit', state: { foo: item._id} }}>
+									 {/* {`/Edit${item._id}`} */}
+									
+									<Button variant="contained" 									
+									 color="primary"
+									 className={classes.button}
+									//  onPress={() => this.props.items("Edit", {id:item._id}) }
+									>
+								       Modifier
+    									</Button>							
+									
+									</Link>
 								</StyledTableCell>
 								<StyledTableCell>
 									<Button
-									 key={item.id} onClick={this.delete.bind(this, item)} 
+									 key={item.id} 
+									 onClick={this.delete.bind(this, item)} 
 									 variant="contained" color="secondary" className={classes.button}>
 									 Delete
      									 </Button>

@@ -1,11 +1,246 @@
-import React, { Component } from 'react'
+// import React, { Component } from 'react'
+// import { Link } from 'react-router-dom';
 
-export default class  extends Component {
-	render() {
-		return (
-			<div>
+// export default class Edit  extends Component {
+
+// 	constructor(props){
+// 		super(props);
+// 		this.state = {
+// 			item:props.item
+// 		}
+		
+// 	}
+// 	render() {
+// 		return (
+// 			<div>
+// 				Hello edit
+// 			</div>
+// 		)
+// 	}
+// }
+
+import React from "react";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import Checkbox from "@material-ui/core/Checkbox";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
+import { withStyles } from "@material-ui/core/styles";
+
+import axios from "axios";
+
+
+
+const useStyles = makeStyles(theme => ({
+        "@global": {
+                body: {
+                        backgroundColor: theme.palette.common.white
+                }
+        },
+        paper: {
+                marginTop: theme.spacing(8),
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center"
+        },
+        avatar: {
+                margin: theme.spacing(1),
+                backgroundColor: theme.palette.secondary.main
+        },
+        form: {
+                width: "100%",
+                marginTop: theme.spacing(1)
+        },
+        submit: {
+                margin: theme.spacing(3, 0, 2)
+        }
+}));
+
+class Edit extends React.Component {
+	
+        constructor(props) {
+                super(props);
+                this.setState.test = this.props.location.state
+
+		// this.state = {
+		// 	id:"",
+		// 	name: "",
+		// 	type: "",
+		// 	price: "",
+		// 	rating: "",
+		// 	warranty_years: "",
+		// 	available: false,
+                // };
+        //      this.state={
+        //              ...this.props.items()
+        //      } 
+
+               }
+        state = { test: } 
+	       
+
+	       componentWillMount(){
+		       this.getParamsPhone();
+	       }
+
+
+        getParamsPhone(){
+		let phoneId= this.props.match.params.id;
+		
+		axios.put('/modifPhone/:id' + phoneId)
+			.then(res =>{
+				this.setState({
+					id: res.data.id,
+					name: res.data.name,
+					type: res.data.type
 				
-			</div>
-		)
+				}, () =>{
+					console.log(this.state);
+				})
+			})
+		
+
 	}
+       
+       
+ 
+        handleChange = event  => {
+                const isCheckbox = event.target.type === 'checkbox'
+                this.setState({ 
+                        [event.target.name]: isCheckbox
+                        ? event.target.checked
+                        : event.target.value
+                })
+        }
+       
+
+        handleSubmit = event => {
+                event.preventDefault();
+                const dataProduct = {
+                        name: this.state.name,
+                        type: this.state.type,
+                        price: this.state.price,
+                        rating: this.state.rating,
+                        warranty_years: this.state.warranty_years,
+                         available: this.state.available
+                };
+
+
+
+
+                //refresh = () => {
+                axios.post("http://localhost:8080/phone/addPhone", dataProduct)
+                        .then(res => {                       
+                                console.log(res.data);
+                        });
+                //}
+        }
+        render() {
+                const { classes } = this.props;
+                const { foo } =this. props.location.state
+
+                return (
+
+        <div>bon{this.state.test}</div>
+                        // <Container component="main" maxWidth="xs" id="mar">
+                        //         <CssBaseline />
+                        //         <div className={classes.paper}>
+                        //                 <Typography component="h1" variant="h5">
+                        //                         Edit le produits
+			// 		</Typography>
+                        //                 <form
+                        //                         className={classes.form}
+                        //                         noValidate
+                        //                         onSubmit={this.handleSubmit}
+                        //                 >
+                        //                         <TextField
+                        //                                 value={this.state.value}
+                        //                                 onChange={this.handleChange}
+                        //                                 name="name"
+                        //                                 variant="outlined"
+                        //                                 margin="normal"
+                        //                                 required
+                        //                                 fullWidth
+                        //                                 id="name"
+                        //                                 label="Produit"
+                                                  
+                        //                         />
+                        //                         <TextField
+                        //                                 value={this.state.value}
+                        //                                 onChange={this.handleChange}
+                        //                                 name="type"
+                        //                                 variant="outlined"
+                        //                                 margin="normal"
+                        //                                 required
+                        //                                 fullWidth
+                        //                                 id="type"
+                        //                                 label="Type"
+
+                        //                         />
+                        //                         <TextField
+                        //                                 value={this.state.value}
+                        //                                 onChange={this.handleChange}
+                        //                                 name="price"
+                        //                                 variant="outlined"
+                        //                                 margin="normal"
+                        //                                 required
+                        //                                 fullWidth
+                        //                                 id="price"
+                        //                                 label="Price"
+
+                        //                         />
+                        //                         <TextField
+                        //                                 value={this.state.value}
+                        //                                 onChange={this.handleChange}
+                        //                                 name="rating"
+                        //                                 variant="outlined"
+                        //                                 margin="normal"
+                        //                                 required
+                        //                                 fullWidth
+                        //                                 id="rating"
+                        //                                 label="Rating"
+
+                        //                         />
+                        //                         <TextField
+                        //                                 value={this.state.value}
+                        //                                 onChange={this.handleChange}
+                        //                                 name="warranty_years"
+                        //                                 variant="outlined"
+                        //                                 margin="normal"
+                        //                                 required
+                        //                                 fullWidth
+                        //                                 id="warranty_years"
+                        //                                 label="Warranty"
+
+                        //                         />
+                                                                                
+                        //                         <Checkbox
+                        //                                 checked={this.state.available}
+                        //                                 onChange={this.handleChange}
+                        //                                 name = "available"
+                        //                                 type="checkbox"
+                                                    
+                        //                                 color="secondary"
+                                                    
+                        //                         />
+                        //                             Available
+                                          
+                        //                         <Button
+                        //                                 type="submit"
+                        //                                 fullWidth
+                        //                                 variant="contained"
+                        //                                 color="primary"
+                        //                                 className={classes.submit}
+                                                      
+                        //                         >
+                        //                                 Ajouter le produit
+			// 			</Button> 
+                        //                 </form>
+                        //         </div>
+                        // </Container>
+                );
+        }
 }
+export default withStyles(useStyles)(Edit);
