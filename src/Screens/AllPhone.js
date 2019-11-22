@@ -111,15 +111,12 @@ class AllPhone extends Component {
 								</StyledTableCell>
 								
 								
-								<StyledTableCell>
-								 {/* <Link to={`/Edit${item._id}`}> */}
-								 <Link to={{ pathname: '/Edit', state: { foo: item._id} }}>
-									 {/* {`/Edit${item._id}`} */}
-									
+								<StyledTableCell>					
+									 <Link to={{ pathname: '/Edit', state: item }}>							
 									<Button variant="contained" 									
 									 color="primary"
 									 className={classes.button}
-									//  onPress={() => this.props.items("Edit", {id:item._id}) }
+								
 									>
 								       Modifier
     									</Button>							
@@ -138,6 +135,21 @@ class AllPhone extends Component {
 						))}
 					</TableBody>
 				</Table>
+
+
+				<Link to={{ pathname: '/AddPhone' }}>
+					
+
+					<Button variant="contained"
+						color="primary"
+						className={classes.button}
+					
+					>
+						adddddd
+    							</Button>
+
+				</Link>
+
 			</Paper>
 		);
 	}

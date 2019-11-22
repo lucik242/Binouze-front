@@ -12,7 +12,7 @@ export default class Home extends Component {
                 return (
                         <div className="Home">
                                 <AllPhone />
-                                <Addd/>
+                                {/* <Addd/> */}
                                 {/* <Edit /> */}
                         </div>
                 )

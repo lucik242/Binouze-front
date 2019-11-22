@@ -10,182 +10,180 @@ import { withStyles } from "@material-ui/core/styles";
 
 import axios from "axios";
 
-
-
 const useStyles = makeStyles(theme => ({
-        "@global": {
-                body: {
-                        backgroundColor: theme.palette.common.white
-                }
-        },
-        paper: {
-                marginTop: theme.spacing(8),
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center"
-        },
-        avatar: {
-                margin: theme.spacing(1),
-                backgroundColor: theme.palette.secondary.main
-        },
-        form: {
-                width: "100%",
-                marginTop: theme.spacing(1)
-        },
-        submit: {
-                margin: theme.spacing(3, 0, 2)
-        }
+	"@global": {
+		body: {
+			backgroundColor: theme.palette.common.white
+		}
+	},
+	paper: {
+		marginTop: theme.spacing(8),
+		display: "flex",
+		flexDirection: "column",
+		alignItems: "center"
+	},
+	avatar: {
+		margin: theme.spacing(1),
+		backgroundColor: theme.palette.secondary.main
+	},
+	form: {
+		width: "100%",
+		marginTop: theme.spacing(1)
+	},
+	submit: {
+		margin: theme.spacing(3, 0, 2)
+	}
 }));
 
 class Addd extends React.Component {
-        constructor(props) {
-                super(props);
+	constructor(props) {
+		super(props);
 
-                this.state = {
-                        name: "",
-                        type: "",
-                        price: "",
-                        rating: "",
-                        warranty_years: "",
-                        available:  false,
-                };
+		this.state = {
+			name: "",
+			type: "",
+			price: "",
+			rating: "",
+			warranty_years: "",
+			available: false,
+			// selectedFile: null,
+			loaded: null,
+			file: ""
+		};
+	}
 
-               }
-       
-       
-       
- 
-        handleChange = event  => {
-                const isCheckbox = event.target.type === 'checkbox'
-                this.setState({ 
-                        [event.target.name]: isCheckbox
-                        ? event.target.checked
-                        : event.target.value
-                })
-        }
-       
+	handleChange = event => {
+		const isCheckbox = event.target.type === "checkbox";
+		this.setState({
+			[event.target.name]: isCheckbox
+				? event.target.checked
+				: event.target.value
+		});
+	};
 
-        handleSubmit = event => {
-                event.preventDefault();
-                const dataProduct = {
-                        name: this.state.name,
-                        type: this.state.type,
-                        price: this.state.price,
-                        rating: this.state.rating,
-                        warranty_years: this.state.warranty_years,
-                         available: this.state.available
-                };
+	onFile = event => {
+		console.log(event.target.files[0]);
+		this.setState({
+			file: event.target.files[0]
+		});
+	};
 
+	handleSubmit = event => {
+		event.preventDefault();
+		// const data = new FormData();
+		// data.append("myImage", this.state.file);
+		const dataProduct = {
+			name: this.state.name,
+			type: this.state.type,
+			price: this.state.price,
+			rating: this.state.rating,
+			warranty_years: this.state.warranty_years,
+			available: this.state.available,
+			file: this.state.file
+		};
+		console.log(dataProduct);
+		const config = {
+			"content-type": "multipart/form-data"
+		};
 
-
-
-                //refresh = () => {
-                axios.post("http://localhost:8080/phone/addPhone", dataProduct)
-                        .then(res => {                       
-                                console.log(res.data);
-                        });
-                //}
-        }
-        render() {
-                const { classes } = this.props;
-                return (
-                        <Container component="main" maxWidth="xs" id="mar">
-                                <CssBaseline />
-                                <div className={classes.paper}>
-                                        <Typography component="h1" variant="h5">
-                                                Ajouter les produits
+		axios
+			.post("http://localhost:8080/phone/addPhone", dataProduct, config)
+			.then(res => {
+				console.log(res.data);
+				// window.location = "/AllPhone";
+			});
+	};
+	render() {
+		const { classes } = this.props;
+		return (
+			<Container component="main" maxWidth="xs" id="mar">
+				<CssBaseline />
+				<div className={classes.paper}>
+					<Typography component="h1" variant="h5">
+						Ajouter les produits
 					</Typography>
-                                        <form
-                                                className={classes.form}
-                                                noValidate
-                                                onSubmit={this.handleSubmit}
-                                        >
-                                                <TextField
-                                                        value={this.state.value}
-                                                        onChange={this.handleChange}
-                                                        name="name"
-                                                        variant="outlined"
-                                                        margin="normal"
-                                                        required
-                                                        fullWidth
-                                                        id="name"
-                                                        label="Produit"
-                                                  
-                                                />
-                                                <TextField
-                                                        value={this.state.value}
-                                                        onChange={this.handleChange}
-                                                        name="type"
-                                                        variant="outlined"
-                                                        margin="normal"
-                                                        required
-                                                        fullWidth
-                                                        id="type"
-                                                        label="Type"
-
-                                                />
-                                                <TextField
-                                                        value={this.state.value}
-                                                        onChange={this.handleChange}
-                                                        name="price"
-                                                        variant="outlined"
-                                                        margin="normal"
-                                                        required
-                                                        fullWidth
-                                                        id="price"
-                                                        label="Price"
-
-                                                />
-                                                <TextField
-                                                        value={this.state.value}
-                                                        onChange={this.handleChange}
-                                                        name="rating"
-                                                        variant="outlined"
-                                                        margin="normal"
-                                                        required
-                                                        fullWidth
-                                                        id="rating"
-                                                        label="Rating"
-
-                                                />
-                                                <TextField
-                                                        value={this.state.value}
-                                                        onChange={this.handleChange}
-                                                        name="warranty_years"
-                                                        variant="outlined"
-                                                        margin="normal"
-                                                        required
-                                                        fullWidth
-                                                        id="warranty_years"
-                                                        label="Warranty"
-
-                                                />
-                                                                                
-                                                <Checkbox
-                                                        checked={this.state.available}
-                                                        onChange={this.handleChange}
-                                                        name = "available"
-                                                        type="checkbox"
-                                                    
-                                                        color="secondary"
-                                                    
-                                                />
-                                                    Available
-                                          
-                                                <Button
-                                                        type="submit"
-                                                        fullWidth
-                                                        variant="contained"
-                                                        color="primary"
-                                                        className={classes.submit}
-                                                      
-                                                >
-                                                        Ajouter le produit
-						</Button> 
-                                        </form>
-                                </div>
-                        </Container>
-                );
-        }
+					<form
+						className={classes.form}
+						noValidate
+						onSubmit={this.handleSubmit}
+					>
+						<TextField
+							value={this.state.value}
+							onChange={this.handleChange}
+							name="name"
+							variant="outlined"
+							margin="normal"
+							required
+							fullWidth
+							id="name"
+							label="Produit"
+						/>
+						<TextField
+							value={this.state.value}
+							onChange={this.handleChange}
+							name="type"
+							variant="outlined"
+							margin="normal"
+							required
+							fullWidth
+							id="type"
+							label="Type"
+						/>
+						<TextField
+							value={this.state.value}
+							onChange={this.handleChange}
+							name="price"
+							variant="outlined"
+							margin="normal"
+							required
+							fullWidth
+							id="price"
+							label="Price"
+						/>
+						<TextField
+							value={this.state.value}
+							onChange={this.handleChange}
+							name="rating"
+							variant="outlined"
+							margin="normal"
+							required
+							fullWidth
+							id="rating"
+							label="Rating"
+						/>
+						<TextField
+							value={this.state.value}
+							onChange={this.handleChange}
+							name="warranty_years"
+							variant="outlined"
+							margin="normal"
+							required
+							fullWidth
+							id="warranty_years"
+							label="Warranty"
+						/>
+						<Checkbox
+							checked={this.state.available}
+							onChange={this.handleChange}
+							name="available"
+							type="checkbox"
+							color="secondary"
+						/>
+						Available
+						<input type="file" name="file" onChange={this.onFile} />
+						<Button
+							type="submit"
+							fullWidth
+							variant="contained"
+							color="primary"
+							className={classes.submit}
+						>
+							Ajouter le produit
+						</Button>
+					</form>
+				</div>
+			</Container>
+		);
+	}
 }
 export default withStyles(useStyles)(Addd);

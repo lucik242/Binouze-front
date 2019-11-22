@@ -8,7 +8,7 @@
 // 		this.state = {
 // 			item:props.item
 // 		}
-		
+
 // 	}
 // 	render() {
 // 		return (
@@ -31,216 +31,187 @@ import { withStyles } from "@material-ui/core/styles";
 
 import axios from "axios";
 
-
-
 const useStyles = makeStyles(theme => ({
-        "@global": {
-                body: {
-                        backgroundColor: theme.palette.common.white
-                }
-        },
-        paper: {
-                marginTop: theme.spacing(8),
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center"
-        },
-        avatar: {
-                margin: theme.spacing(1),
-                backgroundColor: theme.palette.secondary.main
-        },
-        form: {
-                width: "100%",
-                marginTop: theme.spacing(1)
-        },
-        submit: {
-                margin: theme.spacing(3, 0, 2)
-        }
+	"@global": {
+		body: {
+			backgroundColor: theme.palette.common.white
+		}
+	},
+	paper: {
+		marginTop: theme.spacing(8),
+		display: "flex",
+		flexDirection: "column",
+		alignItems: "center"
+	},
+	avatar: {
+		margin: theme.spacing(1),
+		backgroundColor: theme.palette.secondary.main
+	},
+	form: {
+		width: "100%",
+		marginTop: theme.spacing(1)
+	},
+	submit: {
+		margin: theme.spacing(3, 0, 2)
+	}
 }));
 
 class Edit extends React.Component {
-	
-        constructor(props) {
-                super(props);
-                this.setState.test = this.props.location.state
+	constructor(props) {
+		super(props);
 
-		// this.state = {
-		// 	id:"",
-		// 	name: "",
-		// 	type: "",
-		// 	price: "",
-		// 	rating: "",
-		// 	warranty_years: "",
-		// 	available: false,
-                // };
-        //      this.state={
-        //              ...this.props.items()
-        //      } 
-
-               }
-        state = { test: } 
-	       
-
-	       componentWillMount(){
-		       this.getParamsPhone();
-	       }
-
-
-        getParamsPhone(){
-		let phoneId= this.props.match.params.id;
-		
-		axios.put('/modifPhone/:id' + phoneId)
-			.then(res =>{
-				this.setState({
-					id: res.data.id,
-					name: res.data.name,
-					type: res.data.type
-				
-				}, () =>{
-					console.log(this.state);
-				})
-			})
-		
-
+		this.state = {
+			...this.props.location.state,
+			loading: false
+		};
 	}
-       
-       
- 
-        handleChange = event  => {
-                const isCheckbox = event.target.type === 'checkbox'
-                this.setState({ 
-                        [event.target.name]: isCheckbox
-                        ? event.target.checked
-                        : event.target.value
-                })
-        }
-       
 
-        handleSubmit = event => {
-                event.preventDefault();
-                const dataProduct = {
-                        name: this.state.name,
-                        type: this.state.type,
-                        price: this.state.price,
-                        rating: this.state.rating,
-                        warranty_years: this.state.warranty_years,
-                         available: this.state.available
-                };
+	//        componentWillMount(){
+	// 	       this.getParamsPhone();
+	//        }
 
+	// getParamsPhone(){
+	// 	let phoneId= this.props.match.params.id;
 
+	// 	axios.put('/modifPhone/:id' + phoneId)
+	// 		.then(res =>{
+	// 			this.setState({
+	// 				id: res.data.id,
+	// 				name: res.data.name,
+	// 				type: res.data.type
 
+	// 			}, () =>{
+	//                                 console.log(this.state);
+	//                                 window.location = "/AllPhone"
+	// 			})
+	// 		})
 
-                //refresh = () => {
-                axios.post("http://localhost:8080/phone/addPhone", dataProduct)
-                        .then(res => {                       
-                                console.log(res.data);
-                        });
-                //}
-        }
-        render() {
-                const { classes } = this.props;
-                const { foo } =this. props.location.state
+	// }
 
-                return (
+	handleChange = e => {
+		const target = e.target;
+		const value = target.type === "checkbox" ? target.checked : target.value;
+		const name = target.name;
+		console.log(name, value);
+		this.setState({
+			[name]: value
+		});
+	};
 
-        <div>bon{this.state.test}</div>
-                        // <Container component="main" maxWidth="xs" id="mar">
-                        //         <CssBaseline />
-                        //         <div className={classes.paper}>
-                        //                 <Typography component="h1" variant="h5">
-                        //                         Edit le produits
-			// 		</Typography>
-                        //                 <form
-                        //                         className={classes.form}
-                        //                         noValidate
-                        //                         onSubmit={this.handleSubmit}
-                        //                 >
-                        //                         <TextField
-                        //                                 value={this.state.value}
-                        //                                 onChange={this.handleChange}
-                        //                                 name="name"
-                        //                                 variant="outlined"
-                        //                                 margin="normal"
-                        //                                 required
-                        //                                 fullWidth
-                        //                                 id="name"
-                        //                                 label="Produit"
-                                                  
-                        //                         />
-                        //                         <TextField
-                        //                                 value={this.state.value}
-                        //                                 onChange={this.handleChange}
-                        //                                 name="type"
-                        //                                 variant="outlined"
-                        //                                 margin="normal"
-                        //                                 required
-                        //                                 fullWidth
-                        //                                 id="type"
-                        //                                 label="Type"
+	handleSubmit = event => {
+		event.preventDefault();
+		this.setState({ loading: true });
+		const dataProduct = {
+			name: this.state.name,
+			type: this.state.type,
+			price: this.state.price,
+			rating: this.state.rating,
+			warranty_years: this.state.warranty_years,
+			available: this.state.available,
+			id: this.state._id
+		};
 
-                        //                         />
-                        //                         <TextField
-                        //                                 value={this.state.value}
-                        //                                 onChange={this.handleChange}
-                        //                                 name="price"
-                        //                                 variant="outlined"
-                        //                                 margin="normal"
-                        //                                 required
-                        //                                 fullWidth
-                        //                                 id="price"
-                        //                                 label="Price"
+	
+		axios
+			.put("http://localhost:8080/phone/modifPhone", dataProduct)
+			.then(res => {
+				console.log(res.data);
+				this.setState({ loading: false });
+				window.location = "/AllPhone";
+			});
 
-                        //                         />
-                        //                         <TextField
-                        //                                 value={this.state.value}
-                        //                                 onChange={this.handleChange}
-                        //                                 name="rating"
-                        //                                 variant="outlined"
-                        //                                 margin="normal"
-                        //                                 required
-                        //                                 fullWidth
-                        //                                 id="rating"
-                        //                                 label="Rating"
+	};
+	render() {
+		const { classes } = this.props;
 
-                        //                         />
-                        //                         <TextField
-                        //                                 value={this.state.value}
-                        //                                 onChange={this.handleChange}
-                        //                                 name="warranty_years"
-                        //                                 variant="outlined"
-                        //                                 margin="normal"
-                        //                                 required
-                        //                                 fullWidth
-                        //                                 id="warranty_years"
-                        //                                 label="Warranty"
-
-                        //                         />
-                                                                                
-                        //                         <Checkbox
-                        //                                 checked={this.state.available}
-                        //                                 onChange={this.handleChange}
-                        //                                 name = "available"
-                        //                                 type="checkbox"
-                                                    
-                        //                                 color="secondary"
-                                                    
-                        //                         />
-                        //                             Available
-                                          
-                        //                         <Button
-                        //                                 type="submit"
-                        //                                 fullWidth
-                        //                                 variant="contained"
-                        //                                 color="primary"
-                        //                                 className={classes.submit}
-                                                      
-                        //                         >
-                        //                                 Ajouter le produit
-			// 			</Button> 
-                        //                 </form>
-                        //         </div>
-                        // </Container>
-                );
-        }
+		return (
+			<Container component="main" maxWidth="xs" id="mar">
+				<CssBaseline />
+				<div className={classes.paper}>
+					<Typography component="h1" variant="h5">
+						Edit le produits
+					</Typography>
+					<form
+						className={classes.form}
+						noValidate
+						onSubmit={this.handleSubmit}
+					>
+						<TextField
+							value={this.state.name}
+							onChange={this.handleChange}
+							name="name"
+							variant="outlined"
+							margin="normal"
+							required
+							fullWidth
+							id="name"
+							label="Produit"
+						/>
+						<TextField
+							value={this.state.type}
+							onChange={this.handleChange}
+							name="type"
+							variant="outlined"
+							margin="normal"
+							required
+							fullWidth
+							id="type"
+							label="Type"
+						/>
+						<TextField
+							value={this.state.price}
+							onChange={this.handleChange}
+							name="price"
+							variant="outlined"
+							margin="normal"
+							required
+							fullWidth
+							id="price"
+							label="Price"
+						/>
+						<TextField
+							value={this.state.rating}
+							onChange={this.handleChange}
+							name="rating"
+							variant="outlined"
+							margin="normal"
+							required
+							fullWidth
+							id="rating"
+							label="Rating"
+						/>
+						<TextField
+							value={this.state.warranty_years}
+							onChange={this.handleChange}
+							name="warranty_years"
+							variant="outlined"
+							margin="normal"
+							required
+							fullWidth
+							id="warranty_years"
+							label="Warranty"
+						/>
+						<Checkbox
+							onChange={this.handleChange}
+							name="available"
+							type="checkbox"
+							color="secondary"
+						/>
+						Available
+						<Button
+							type="submit"
+							fullWidth
+							variant="contained"
+							color="primary"
+							className={classes.submit}
+							disabled={this.state.loading}
+						>
+							Modifier le produit
+						</Button>
+					</form>
+				</div>
+			</Container>
+		);
+	}
 }
 export default withStyles(useStyles)(Edit);
