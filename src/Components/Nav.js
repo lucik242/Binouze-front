@@ -13,6 +13,7 @@ export default class Nav extends Component {
                                                         <li className="menu__list-item"><Link className="menu__link menu__link--active" to="/">Home</Link></li>
                                                         <li className="menu__list-item"><Link className="menu__link" to="/AddPhone">Ajouter les produits</Link></li>
                                                           <li className="menu__list-item"><Link className="menu__link" to="/Edit">Modifier les produits</Link></li>
+                                                        <li className="menu__list-item"><Link className="menu__link" to="/MainList">Produits</Link></li>
                                                 
                                                 </ul>
 

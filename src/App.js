@@ -2,9 +2,13 @@ import React from 'react';
 import Home from './Screens/Home'
 import Edit from './Screens/Edit'
 import Addd from './Screens/Addd'
+import MyCards from './Screens/MyCards'
 import AllPhone from './Screens/AllPhone'
 import Footer from './Components/Footer'
 import Nav from './Components/Nav'
+import MainList from './Users/MainList'
+import ProduitCards from './Users/ProduitCards'
+
 import "./App.css";
 
 import {
@@ -46,6 +50,9 @@ function App() {
 		
 		 
 			  <Switch>
+					<Route exact path="/ProduitCards" component={ProduitCards} />
+					<Route exact path="/MainList" component={MainList} />
+					<Route exact path="/MyCards" component={MyCards} />
 				  <Route exact path="/AddPhone" component={Addd} />
 				  <Route exact path="/AllPhone" component={AllPhone} />
 				  <Route exact path="/Edit" component={Edit} />

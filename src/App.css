@@ -49,3 +49,12 @@ h3{
   height: 10rem;
   color: rgb(32, 17, 17);
 }
+
+.mycards{
+  margin: 30px;
+
+} 
+
+.mycards Label {
+  margin: 20px;
+}

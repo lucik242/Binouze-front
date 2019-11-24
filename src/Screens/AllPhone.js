@@ -11,6 +11,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 //import Link from '@material-ui/core/Link';
 import { Link } from 'react-router-dom';
 import axios from "axios";
+
 const StyledTableCell = withStyles(theme => ({
 	head: {
 		backgroundColor: theme.palette.common.black,
@@ -35,15 +36,15 @@ const useStyles = makeStyles(theme => ({
 		marginTop: theme.spacing(3),
 		overflowX: "auto"
 	}
-	
+
 }));
 
 class AllPhone extends Component {
-	
-	
+
+
 	state = {
 		items: [],
-	
+
 
 	};
 
@@ -53,7 +54,7 @@ class AllPhone extends Component {
 
 		axios.delete("http://localhost:8080/phone/deletePhone/" + item._id)
 			.then(res => {
-			console.log(res.data);
+				console.log(res.data);
 				this.componentDidMount();
 			})
 			.catch(error => {
@@ -63,10 +64,10 @@ class AllPhone extends Component {
 
 	componentDidMount() {
 		axios.get("http://localhost:8080/phone/allPhone")
-		.then(res => {
-			console.log(res);
-			this.setState({ items: res.data });
-		});
+			.then(res => {
+				console.log(res);
+				this.setState({ items: res.data });
+			});
 	}
 
 
@@ -75,14 +76,15 @@ class AllPhone extends Component {
 		//const Items = this.state.items.map((item, i)=> (
 
 		return (
-		
+
 			<Paper className={classes.root}>
-				
+
 				<Table className={classes.table} aria-label="customized table">
 					<TableHead>
 						<TableRow>
 							<StyledTableCell>Phone</StyledTableCell>
 							<StyledTableCell>Type</StyledTableCell>
+							<StyledTableCell>Img</StyledTableCell>
 							<StyledTableCell>Price</StyledTableCell>
 							<StyledTableCell>Rating</StyledTableCell>
 							<StyledTableCell>Warranty</StyledTableCell>
@@ -92,43 +94,45 @@ class AllPhone extends Component {
 						</TableRow>
 					</TableHead>
 					<TableBody>
-					 {this.state.items.map(item => ( 
-						
+						{this.state.items.map(item => (
+
 							<StyledTableRow key={item.name} >
 								<StyledTableCell component="th" scope="row">
 									{item.name}
-								 	
+
 								</StyledTableCell>
 								<StyledTableCell>{item.type}</StyledTableCell>
+								<StyledTableCell><img src={`${item.file}`}/>  
+								</StyledTableCell>
 								<StyledTableCell>{item.price}</StyledTableCell>
 								<StyledTableCell>{item.rating}</StyledTableCell>
 								<StyledTableCell>{item.warranty_years}</StyledTableCell>
 								<StyledTableCell>
 									<Checkbox
 										checked={item.available}
-										color="Secondary"										
+										color="Secondary"
 									/>
 								</StyledTableCell>
-								
-								
-								<StyledTableCell>					
-									 <Link to={{ pathname: '/Edit', state: item }}>							
-									<Button variant="contained" 									
-									 color="primary"
-									 className={classes.button}
-								
-									>
-								       Modifier
-    									</Button>							
-									
+
+
+								<StyledTableCell>
+									<Link to={{ pathname: '/Edit', state: item }}>
+										<Button variant="contained"
+											color="primary"
+											className={classes.button}
+
+										>
+											Modifier
+    									</Button>
+
 									</Link>
 								</StyledTableCell>
 								<StyledTableCell>
 									<Button
-									 key={item.id} 
-									 onClick={this.delete.bind(this, item)} 
-									 variant="contained" color="secondary" className={classes.button}>
-									 Delete
+										key={item.id}
+										onClick={this.delete.bind(this, item)}
+										variant="contained" color="secondary" className={classes.button}>
+										Delete
      									 </Button>
 								</StyledTableCell>
 							</StyledTableRow>
@@ -138,12 +142,12 @@ class AllPhone extends Component {
 
 
 				<Link to={{ pathname: '/AddPhone' }}>
-					
+
 
 					<Button variant="contained"
 						color="primary"
 						className={classes.button}
-					
+
 					>
 						adddddd
     							</Button>

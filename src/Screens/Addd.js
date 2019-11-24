@@ -53,7 +53,7 @@ class Addd extends React.Component {
 	}
 
 	handleChange = event => {
-		const isCheckbox = event.target.type === "checkbox";
+		const isCheckbox = event.target.type === "checkbox"; 
 		this.setState({
 			[event.target.name]: isCheckbox
 				? event.target.checked
@@ -70,28 +70,20 @@ class Addd extends React.Component {
 
 	handleSubmit = event => {
 		event.preventDefault();
-		// const data = new FormData();
-		// data.append("myImage", this.state.file);
-		const dataProduct = {
-			name: this.state.name,
-			type: this.state.type,
-			price: this.state.price,
-			rating: this.state.rating,
-			warranty_years: this.state.warranty_years,
-			available: this.state.available,
-			file: this.state.file
-		};
-		console.log(dataProduct);
-		const config = {
-			"content-type": "multipart/form-data"
-		};
+		const data = new FormData();
+		data.append("name", this.state.name);
+		data.append("type", this.state.type);
+		data.append("price", this.state.price);
+		data.append("rating", this.state.rating);
+		data.append("warranty_years", this.state.warranty_years);
+		data.append("available", this.state.available);
+		data.append("file", this.state.file);
 
-		axios
-			.post("http://localhost:8080/phone/addPhone", dataProduct, config)
-			.then(res => {
-				console.log(res.data);
-				// window.location = "/AllPhone";
-			});
+		console.log("no-send", data);
+		axios.post("http://localhost:8080/phone/addPhone", data).then(res => {
+			console.log("send", res.data);
+			// window.location = "/AllPhone";
+		});
 	};
 	render() {
 		const { classes } = this.props;
@@ -100,8 +92,8 @@ class Addd extends React.Component {
 				<CssBaseline />
 				<div className={classes.paper}>
 					<Typography component="h1" variant="h5">
-						Ajouter les produits
-					</Typography>
+						Ajouter les produits{" "}
+					</Typography>{" "}
 					<form
 						className={classes.form}
 						noValidate
@@ -169,8 +161,7 @@ class Addd extends React.Component {
 							type="checkbox"
 							color="secondary"
 						/>
-						Available
-						<input type="file" name="file" onChange={this.onFile} />
+						Available <input type="file" name="file" onChange={this.onFile} />{" "}
 						<Button
 							type="submit"
 							fullWidth
@@ -178,10 +169,10 @@ class Addd extends React.Component {
 							color="primary"
 							className={classes.submit}
 						>
-							Ajouter le produit
-						</Button>
-					</form>
-				</div>
+							Ajouter le produit{" "}
+						</Button>{" "}
+					</form>{" "}
+				</div>{" "}
 			</Container>
 		);
 	}
