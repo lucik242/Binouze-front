@@ -6,8 +6,8 @@ import MyCards from './Screens/MyCards'
 import AllPhone from './Screens/AllPhone'
 import Footer from './Components/Footer'
 import Nav from './Components/Nav'
-import MainList from './Users/MainList'
-import ProduitCards from './Users/ProduitCards'
+import MainList from './FrontScreen/MainList'
+import ProduitCards from './FrontScreen/ProduitCards'
 
 import "./App.css";
 

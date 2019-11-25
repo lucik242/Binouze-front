@@ -102,7 +102,8 @@ class AllPhone extends Component {
 
 								</StyledTableCell>
 								<StyledTableCell>{item.type}</StyledTableCell>
-								<StyledTableCell><img src={`${item.file}`}/>  
+								<StyledTableCell><img src={`/${item.file}`} />  
+								{/* <StyledTableCell><img src={`${item.file}`}/>   */}
 								</StyledTableCell>
 								<StyledTableCell>{item.price}</StyledTableCell>
 								<StyledTableCell>{item.rating}</StyledTableCell>
