@@ -1,60 +1,70 @@
 .App {
-  text-align: center;
+	text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
+	height: 40vmin;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+	background-color: #282c34;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+	color: white;
 }
 
+h1 {
+	padding: 5%;
 
-
-
-
-h1{
-  padding: 5%;
- 
-   text-align: center;
-  font-family: 'Cinzel', serif, bold;
-    font-weight: bold;
+	text-align: center;
+	font-family: "Cinzel", serif, bold;
+	font-weight: bold;
 }
-h3{
-  text-align: center;
-   font-family: 'Cinzel', serif;
+h3 {
+	text-align: center;
+	font-family: "Cinzel", serif;
 }
 
-
-  #inscrip {
-  padding: 2%;
-  margin-left: 30%;
-  background-color:gainsboro;
-    width: 40%;
- }
-
-#mar{
-  margin-bottom:10rem ;
+#inscrip {
+	padding: 2%;
+	margin-left: 30%;
+	background-color: gainsboro;
+	width: 40%;
 }
 
-#footer{
-  height: 10rem;
-  color: rgb(32, 17, 17);
+#mar {
+	margin-bottom: 10rem;
 }
 
-.mycards{
-  margin: 30px;
+#footer {
+	height: 10rem;
+	color: rgb(32, 17, 17);
+}
 
-} 
+.mycards {
+	margin: 30px;
+}
 
-.mycards Label {
-  margin: 20px;
+.mycards label {
+	margin: 20px;
+}
+
+.menu {
+	background-color: blueviolet;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+na
+
+ul {
+	display: flex;
+	justify-content: space-between;
+}
+.menu_list {
+	display: flex;
 }
