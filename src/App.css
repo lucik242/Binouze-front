@@ -68,3 +68,9 @@ ul {
 .menu_list {
 	display: flex;
 }
+
+.mycards Label {
+  margin: 20px;
+}
+
+

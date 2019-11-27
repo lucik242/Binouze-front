@@ -1,59 +1,51 @@
-import React from "react";
-import Home from "./Screens/Home";
-import Edit from "./Screens/Edit";
-import Addd from "./Screens/Addd";
-import MyCards from "./Screens/MyCards";
-import AllPhone from "./Screens/AllPhone";
-import Footer from "./Components/Footer";
-import Nav from "./Components/Nav";
 
-import MainList from "./FrontScreen/MainList";
-import ProduitCards from "./FrontScreen/ProduitCards";
+import React from 'react';
+import Home from './Screens/Home'
+import Edit from './Screens/Edit'
+import Addd from './Screens/Addd'
+import MyCards from './Screens/MyCards'
+import AllPhone from './Screens/AllPhone'
+import Footer from './Components/Footer'
+import Nav from './Components/Nav'
+import MainList from './FrontScreen/MainList'
+import BasketContainer from './FrontScreen/Basket'
+import ProduitCards from './FrontScreen/ProduitCards'
 
 import "./App.css";
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+
+} from "react-router-dom";
+import BasketCard from './FrontScreen/BasketCard';
+
+
 
 function App() {
-	return (
-		// <Router>
-		// 	<div>
-		// 		 <Nav />
+// class App extends React.Component {
+		return(
 
-		// 		<Switch>
-		// 			<Route path="/add">
-		// 				<Addd />
-		// 			</Route>
-		// 			<Route path="/">
-		// 				<Home />
-		// 			</Route>
-		// 			<Route exact path="/Edit" component ={Edit}>
-
-		// 				<Edit />
-		// 			</Route>
-
-		// 		</Switch>
-		// 	</div>
-		//   <Footer />
-		// </Router>
-
-		<Router>
-			<Nav />
+			// return () => {
+				<Router>
+					<Nav />
+						<Switch>
+					<Route exact path="/BasketCard" component={BasketCard} />
+						<Route exact path="/Basket" component={BasketContainer} />
+						<Route exact path="/ProduitCards" component={ProduitCards} />
+						<Route exact path="/MainList" component={MainList} />
+						<Route exact path="/MyCards" component={MyCards} />
+							<Route exact path="/AddPhone" component={Addd} />
+							<Route exact path="/AllPhone" component={AllPhone} />
+							<Route exact path="/Edit" component={Edit} />
+								<Route exact path='/' component={Home} />
+						</Switch>
 			
-
-			<Switch>
-				<Route exact path="/ProduitCards" component={ProduitCards} />
-				<Route exact path="/MainList" component={MainList} />
-				<Route exact path="/MyCards" component={MyCards} />
-				<Route exact path="/AddPhone" component={Addd} />
-				<Route exact path="/AllPhone" component={AllPhone} />
-				<Route exact path="/Edit" component={Edit} />
-				<Route exact path="/" component={Home} />
-			</Switch>
-
-			<Footer />
-		</Router>
-	);
-}
+					<Footer />
+				</Router>
+		)
+		// }
+	}
 
 export default App;

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ProduitCards from './ProduitCards'
+import AppContainer from './ProduitCards'
 import { Container, Row, Col, } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import axios from "axios";
@@ -25,7 +25,7 @@ class MainList extends Component {
    let prodCards = this.state.items.map(produit => {
      return (
        <Col sm='3'>
-         < ProduitCards produit={produit} />
+         <AppContainer produit={produit} />
        </Col>
      )
    }
