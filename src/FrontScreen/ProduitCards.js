@@ -3,15 +3,25 @@ import {
  Card, CardImg, CardText, CardBody,
  CardTitle, CardSubtitle, Button, Label, Input
 } from 'reactstrap';
+import { Link } from 'react-router-dom';
+// import actions from "../redux/actions"
+import { connect } from 'react-redux';
+
+import { addToCart, getCart } from '../redux/redux';
 
 
 
-class ProduitCards extends Component {
+
+
+export class ProduitCards extends Component {
  constructor(props) {
   super(props);
  }
 
+
+
  render() {
+   console.log(this.props.products)
 
   return (
    <div className="mycards">
@@ -29,7 +39,9 @@ class ProduitCards extends Component {
            available
        </Label>
       </CardText>
-      <Button color="primary">Acheter</Button>{' '}
+                  <Link to={{ pathname: '/Basket', state: {foo: this.props.produit }}}>
+            <Button color="primary" onClick={() => { console.log(this.props.addToCart({ ...this.props.produit }))}}>Acheter</Button>{' '}
+       </Link>
      </CardBody>
     </Card>
    </div>
@@ -37,5 +49,20 @@ class ProduitCards extends Component {
  }
 }
 
+const mapStateToProps = state => ({
+  products: state,
+});
 
-export default ProduitCards;
+const mapDispatchToProps = {
+  addToCart,
+  //getCart
+};
+
+const AppContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ProduitCards);
+
+export default AppContainer;
+
+// export default ProduitCards;
