@@ -10,7 +10,7 @@ import Nav from './Components/Nav'
 import MainList from './FrontScreen/MainList'
 import BasketContainer from './FrontScreen/Basket'
 import ProduitCards from './FrontScreen/ProduitCards'
-
+import BasketStock from './FrontScreen/BasketCard';
 import "./App.css";
 
 import {
@@ -19,7 +19,7 @@ import {
   Route,
 
 } from "react-router-dom";
-import BasketCard from './FrontScreen/BasketCard';
+
 
 
 
@@ -31,7 +31,7 @@ function App() {
 				<Router>
 					<Nav />
 						<Switch>
-					<Route exact path="/BasketCard" component={BasketCard} />
+					<Route exact path="/BasketCard" component={BasketStock} />
 						<Route exact path="/Basket" component={BasketContainer} />
 						<Route exact path="/ProduitCards" component={ProduitCards} />
 						<Route exact path="/MainList" component={MainList} />

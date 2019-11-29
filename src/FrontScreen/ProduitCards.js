@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 // import actions from "../redux/actions"
 import { connect } from 'react-redux';
 
-import { addToCart, getCart } from '../redux/redux';
+import { addToCart } from '../redux/redux';
 
 
 

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import BasketCard from "./BasketCard"
-import { Container, Row, Col, } from 'reactstrap';
+import BasketCard from "./BasketCard";
+import { Container, Col, } from 'reactstrap';
 import { connect } from 'react-redux';
 
 import { addToCart } from '../redux/redux'; // with addToCart  add another action

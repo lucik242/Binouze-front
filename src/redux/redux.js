@@ -6,6 +6,11 @@ export const addToCart = product => ({
  product,
 });
 
+export const deleteFromCart = product => ({
+  type: 'DELETE_ FROM_CART',
+  product,
+});
+
 //export const getCart = () => ({
 //type: 'GET_CART'
 //});
@@ -28,6 +33,12 @@ export const productReducer = (state = {
    case 'ADD_TO_CART':
      state.products.push(action.product);
      return state;
+    case 'DELETE_FROM_CART':
+     const cardId = action.product;
+     return state.products.filter(card => card.id !== cardId);
+    
+  
+      //return state;
     //case 'GET_CART':
       //return state
     // return {lol: action.product};

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Card, Button, CardTitle, CardText } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { deleteFromCart } from '../redux/redux'; 
 
 export class BasketCard extends Component {
 constructor(props){
@@ -9,7 +11,7 @@ constructor(props){
 
 
 render() {
-
+ 
  return(
   <div className="cardBasket">
    
@@ -23,13 +25,33 @@ render() {
      <Link to=' '>
       <Button>Acheter</Button>
      </Link>
-
+     <Link to='/Basket'>
+       <Button color="primary" onClick={() => { console.log(this.props.deleteFromCart({ ...this.props.good })) }}>Suprimer</Button>
+       </Link>
     </Card>
+
    
   </div>
  );
 }
 }
 
+const mapStateToProps = state => ({
+  products: state,
+});
 
-export default BasketCard;
+const mapDispatchToProps = {
+  deleteFromCart,
+  //addToCart,
+  //getCart
+};
+
+const BasketStock = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(BasketCard);
+
+export default BasketStock;
+
+
+//export default BasketCard;
