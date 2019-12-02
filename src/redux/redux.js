@@ -7,43 +7,36 @@ export const addToCart = product => ({
 });
 
 export const deleteFromCart = product => ({
-  type: 'DELETE_ FROM_CART',
+  type: 'DELETE_FROM_CART',
   product,
 });
 
-//export const getCart = () => ({
-//type: 'GET_CART'
-//});
 
-
-// export const closeGeod = () => ({
-//  type: 'CLOSE_GEOD',
-// });
 
 // reducers.js
 export const productReducer = (state = { 
   products: [],
   //user: []
 }, action) => {
-//  const newState = Object.assign({
-//   products: []
-//  }, state);
+  console.log(action);
+
 
  switch (action.type) {
    case 'ADD_TO_CART':
      state.products.push(action.product);
      return state;
-    case 'DELETE_FROM_CART':
-     const cardId = action.product;
-     return state.products.filter(card => card.id !== cardId);
-    
-  
-      //return state;
-    //case 'GET_CART':
-      //return state
-    // return {lol: action.product};
-   // case 'CLOSE_GEOD':
-   //  return {};
+  case 'DELETE_FROM_CART':
+    console.log(action)
+     const cardId = action.product._id;
+     console.log(cardId)
+     let lol = state.products.filter(card => {
+       console.log(card.id)
+       return card._id !== cardId
+      })
+     console.log(lol)
+     state.products = lol
+     return state;
+     
    default:
      return state;
  }};
