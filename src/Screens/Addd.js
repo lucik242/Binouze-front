@@ -44,7 +44,7 @@ class Addd extends React.Component {
 			type: "",
 			price: "",
 			rating: "",
-			warranty_years: "",
+			description: "",
 			available: false,
 			// selectedFile: null,
 			loaded: null,
@@ -75,24 +75,26 @@ class Addd extends React.Component {
 		data.append("type", this.state.type);
 		data.append("price", this.state.price);
 		data.append("rating", this.state.rating);
-		data.append("warranty_years", this.state.warranty_years);
+		data.append("description", this.state.description);
 		data.append("available", this.state.available);
 		data.append("file", this.state.file);
 
 		console.log("no-send", data);
 		axios.post("http://localhost:8080/phone/addPhone", data).then(res => {
 			console.log("send", res.data);
-			// window.location = "/AllPhone";
+			window.location = "/AllPhone";
 		});
 	};
 	render() {
 		const { classes } = this.props;
 		return (
+			<div>
+				<h2>Ajouter les produits</h2>
 			<Container component="main" maxWidth="xs" id="mar">
 				<CssBaseline />
 				<div className={classes.paper}>
 					<Typography component="h1" variant="h5">
-						Ajouter les produits{" "}
+						
 					</Typography>{" "}
 					<form
 						className={classes.form}
@@ -146,13 +148,13 @@ class Addd extends React.Component {
 						<TextField
 							value={this.state.value}
 							onChange={this.handleChange}
-							name="warranty_years"
+							name="description"
 							variant="outlined"
 							margin="normal"
 							required
 							fullWidth
-							id="warranty_years"
-							label="Warranty"
+							id="description"
+							label="Description"
 						/>
 						<Checkbox
 							checked={this.state.available}
@@ -174,6 +176,7 @@ class Addd extends React.Component {
 					</form>{" "}
 				</div>{" "}
 			</Container>
+			</div >
 		);
 	}
 }

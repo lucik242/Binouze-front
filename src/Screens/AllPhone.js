@@ -8,9 +8,19 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
+
 //import Link from '@material-ui/core/Link';
 import { Link } from 'react-router-dom';
 import axios from "axios";
+import { createMuiTheme } from '@material-ui/core/styles';
+import yellow from '@material-ui/core/colors/yellow';
+
+const theme = createMuiTheme({
+	palette: {
+		primary: yellow,
+	},
+});
+
 
 const StyledTableCell = withStyles(theme => ({
 	head: {
@@ -36,6 +46,7 @@ const useStyles = makeStyles(theme => ({
 		marginTop: theme.spacing(3),
 		overflowX: "auto"
 	}
+
 
 }));
 
@@ -76,19 +87,20 @@ class AllPhone extends Component {
 		//const Items = this.state.items.map((item, i)=> (
 
 		return (
-
-			<Paper className={classes.root}>
-
+      <div>
+							<h2>List de produits</h2>
+			<Paper id="tableProduct" className={classes.root}>
+  
 				<Table className={classes.table} aria-label="customized table">
 					<TableHead>
 						<TableRow>
-							<StyledTableCell>Phone</StyledTableCell>
+							<StyledTableCell>Produit</StyledTableCell>
 							<StyledTableCell>Type</StyledTableCell>
 							<StyledTableCell>Img</StyledTableCell>
-							<StyledTableCell>Price</StyledTableCell>
+							<StyledTableCell>Prix</StyledTableCell>
 							<StyledTableCell>Rating</StyledTableCell>
-							<StyledTableCell>Warranty</StyledTableCell>
-							<StyledTableCell>Available</StyledTableCell>
+							<StyledTableCell>Discription</StyledTableCell>
+							<StyledTableCell>Disponible</StyledTableCell>
 							<StyledTableCell>Modifier</StyledTableCell>
 							<StyledTableCell>Supprimer</StyledTableCell>
 						</TableRow>
@@ -102,12 +114,19 @@ class AllPhone extends Component {
 
 								</StyledTableCell>
 								<StyledTableCell>{item.type}</StyledTableCell>
-								<StyledTableCell><img src={`/${item.file}`} />  
+								<StyledTableCell>
+									<img
+										className="allphone-img"
+										src={`http://localhost:8080/${item.file}`}
+										alt=""
+									/>
+									
+									{/* <img src={`/${item.file}`} />   */}
 								{/* <StyledTableCell><img src={`${item.file}`}/>   */}
 								</StyledTableCell>
 								<StyledTableCell>{item.price}</StyledTableCell>
 								<StyledTableCell>{item.rating}</StyledTableCell>
-								<StyledTableCell>{item.warranty_years}</StyledTableCell>
+								<StyledTableCell>{item.description}</StyledTableCell>
 								<StyledTableCell>
 									<Checkbox
 										checked={item.available}
@@ -150,12 +169,13 @@ class AllPhone extends Component {
 						className={classes.button}
 
 					>
-						adddddd
+						Ajouter produit
     							</Button>
 
 				</Link>
 
 			</Paper>
+			</div>
 		);
 	}
 }

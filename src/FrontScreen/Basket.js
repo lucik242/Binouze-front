@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import BasketCard from "./BasketCard";
-import { Container, Col, } from 'reactstrap';
+import { Container, Col, Button, Row } from 'reactstrap';
 import { connect } from 'react-redux';
-
+import { Link } from 'react-router-dom';
 import { addToCart } from '../redux/redux'; // with addToCart  add another action
 //import { Link } from 'react-router-dom';
 
@@ -26,21 +26,39 @@ export class Basket extends Component {
     // let goods = "lol"
    let goods = this.props.products.productReducer.products.map(good => {
     return(
-      <Col sm="4">
+        <Col sm="12" md={{ size: 6, offset: 3 }}>
         <BasketCard good={good} />
-      </Col>
+        </Col>
     )
    })
   
   
-
   return (
     <Container>
       {goods}
+      <Row>
+        <Col sm="12" md={{ size: 6, offset: 3 }}>
+      <Link to='/MainList'>
+            <Button style={{ backgroundColor: '#f89d13' }} className="buttonB">Continuer vos achat</Button>
+     </Link>
+      <Link to=' '>
+            <Button style={{ backgroundColor: '#f89d13' }} className="buttonB">Acheter</Button>
+    </Link>
+        </Col>
+      </Row>
     </Container>
+    // <div>
+    // {/* <Link to='/MainList'>
+    //   <Button>Continuer vos achat</Button>
+    // </Link>
+
+    // <Link to=' '>
+    //   <Button>Acheter</Button>
+    // </Link>
+    // </div > */}
   );
    
-
+  
  }
 }
 

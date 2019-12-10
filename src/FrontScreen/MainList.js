@@ -24,7 +24,7 @@ class MainList extends Component {
  render () {
    let prodCards = this.state.items.map(produit => {
      return (
-       <Col sm='3'>
+       <Col  xs='6' sm='3'>
          <AppContainer produit={produit} />
        </Col>
      )

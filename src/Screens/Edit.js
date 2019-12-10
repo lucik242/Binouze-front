@@ -66,28 +66,6 @@ class Edit extends React.Component {
 		};
 	}
 
-	//        componentWillMount(){
-	// 	       this.getParamsPhone();
-	//        }
-
-	// getParamsPhone(){
-	// 	let phoneId= this.props.match.params.id;
-
-	// 	axios.put('/modifPhone/:id' + phoneId)
-	// 		.then(res =>{
-	// 			this.setState({
-	// 				id: res.data.id,
-	// 				name: res.data.name,
-	// 				type: res.data.type
-
-	// 			}, () =>{
-	//                                 console.log(this.state);
-	//                                 window.location = "/AllPhone"
-	// 			})
-	// 		})
-
-	// }
-
 	handleChange = e => {
 		const target = e.target;
 		const value = target.type === "checkbox" ? target.checked : target.value;
@@ -106,7 +84,7 @@ class Edit extends React.Component {
 			type: this.state.type,
 			price: this.state.price,
 			rating: this.state.rating,
-			warranty_years: this.state.warranty_years,
+			description: this.state.description,
 			available: this.state.available,
 			id: this.state._id
 		};
@@ -125,11 +103,13 @@ class Edit extends React.Component {
 		const { classes } = this.props;
 
 		return (
+			<div>
+				<h2>	Edit le produits</h2>
 			<Container component="main" maxWidth="xs" id="mar">
 				<CssBaseline />
 				<div className={classes.paper}>
 					<Typography component="h1" variant="h5">
-						Edit le produits
+			
 					</Typography>
 					<form
 						className={classes.form}
@@ -181,15 +161,15 @@ class Edit extends React.Component {
 							label="Rating"
 						/>
 						<TextField
-							value={this.state.warranty_years}
+							value={this.state.description}
 							onChange={this.handleChange}
-							name="warranty_years"
+							name="description"
 							variant="outlined"
 							margin="normal"
 							required
 							fullWidth
-							id="warranty_years"
-							label="Warranty"
+							id="description"
+							label="Description"
 						/>
 						<Checkbox
 							onChange={this.handleChange}
@@ -211,6 +191,7 @@ class Edit extends React.Component {
 					</form>
 				</div>
 			</Container>
+			</div>
 		);
 	}
 }

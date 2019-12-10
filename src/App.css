@@ -2,20 +2,6 @@
 	text-align: center;
 }
 
-.App-logo {
-	height: 40vmin;
-}
-
-.App-header {
-	background-color: #282c34;
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	font-size: calc(10px + 2vmin);
-	color: white;
-}
 
 h1 {
 	padding: 5%;
@@ -24,9 +10,13 @@ h1 {
 	font-family: "Cinzel", serif, bold;
 	font-weight: bold;
 }
+h2 {
+	text-align: center;
+	
+}
 h3 {
 	text-align: center;
-	font-family: "Cinzel", serif;
+
 }
 
 #inscrip {
@@ -44,33 +34,62 @@ h3 {
 	height: 10rem;
 	color: rgb(32, 17, 17);
 }
+/* nav */
+#menu {
+background-color: #1b120f;
+color:#e6dedd;
+	/* display: flex;
+	justify-content: space-between;
+	width: 100%; */
+}
 
+ul {
+	display: flex;
+	justify-content: space-between;
+}
+
+.menu_list {
+	display: flex;
+
+}
+/* MainList and ProduitCard */
 .mycards {
-	margin: 30px;
+	margin: 40px;
 }
 
 .mycards label {
 	margin: 20px;
 }
 
-.menu {
-	background-color: blueviolet;
-	display: flex;
-	justify-content: space-between;
-	width: 100%;
+/* Basket and BasketCard  */
+.cardB{
+	margin: 20px;
+	padding: 15px;
 }
-na
-
-ul {
-	display: flex;
-	justify-content: space-between;
+.buttonB{
+	margin-left: 5vw;
 }
-.menu_list {
-	display: flex;
+.buttonD{
+	float: right;
 }
 
-.mycards Label {
-  margin: 20px;
+#tableProduct{
+	margin: 10vh 2vh 0vh 2vh;
 }
+.allphone-img {
+  width: 60px;
+}
+.allPhone-container {
+  padding: 0 42px;
+  margin-top: 50px;
+}
+/* 
+.allPhone--button-add {
+  button {
+    display: block;
+    margin: auto;
+  }
+} */
+
 
 
