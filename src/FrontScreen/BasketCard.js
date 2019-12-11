@@ -21,7 +21,7 @@ render() {
        </Link>
      <CardTitle> Produit: {this.props.good.name}</CardTitle>
      <CardText>Type:{this.props.good.type}</CardText>
-     <CardText>Prix: {this.props.good.price} £ </CardText>
+       <CardText>Prix: {this.props.good.price} € </CardText>
        <FormGroup>
          <Label for="exampleSelect">Select</Label>
          <Input type="select" name="select" id="exampleSelect">
@@ -32,6 +32,7 @@ render() {
            <option>5</option>
            <option>6</option>
          </Input>
+         <CardText>Total:       € </CardText>
        </FormGroup>
     </Card>
      

@@ -83,6 +83,9 @@ ul {
   padding: 0 42px;
   margin-top: 50px;
 }
+.card-img{
+	height: 35vh;
+}
 /* 
 .allPhone--button-add {
   button {

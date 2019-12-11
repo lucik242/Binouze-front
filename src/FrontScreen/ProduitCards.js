@@ -22,7 +22,18 @@ export class ProduitCards extends Component {
    <div className="mycards">
     <Card >
         {/* <CardImg src={image} /> */}
-       <CardImg src={`/${this.props.produit.file}`} />
+       {/* <CardImg src={`/${this.props.produit.file}`} /> */}
+        <CardImg top width="100%" 
+          className="card-img"
+          src={`http://localhost:8080/${this.props.produit.file}`}
+          alt=""
+        />
+        {/* <img
+          className="allphone-img"
+          src={`http://localhost:8080/${this.props.produit.file}`}
+          alt=""
+        /> */}
+
         {/* <CardImg  src={this.props.produit.file && <img src={this.props.produit.file} />}/>  */}
 
         {/* <CardImg src={require (this.props.produit.file)} />  */}
