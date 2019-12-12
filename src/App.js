@@ -11,6 +11,7 @@ import BasketContainer from './FrontScreen/Basket'
 import ProduitCards from './FrontScreen/ProduitCards'
 import BasketStock from './FrontScreen/BasketCard'
 import Inscription from './Screens/Clients/Inscription'
+import Logo from './Screens/Logo'
 import "./App.css";
 
 import {
@@ -30,6 +31,7 @@ function App() {
 				<Router>
 					<Nav />
 						<Switch>
+					<Route exact path="/Logo" component={Logo} />
 					<Route exact path="/Inscription" component={Inscription} />
 					<Route exact path="/BasketCard" component={BasketStock} />
 						<Route exact path="/Basket" component={BasketContainer} />

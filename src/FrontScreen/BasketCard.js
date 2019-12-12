@@ -10,6 +10,13 @@ constructor(props){
  super(props);
 }
 
+//  total = () =>{
+//    let prix = { this.props.good.price };
+//   return  (prix * 2)
+// }
+
+
+  
 
 render() {
  
@@ -32,7 +39,7 @@ render() {
            <option>5</option>
            <option>6</option>
          </Input>
-         <CardText>Total:       € </CardText>
+         <CardText>Total:      € </CardText>
        </FormGroup>
     </Card>
      

@@ -32,7 +32,6 @@ export class Basket extends Component {
     )
    })
   
-  
   return (
     <Container>
       {goods}
