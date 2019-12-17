@@ -163,7 +163,8 @@ class Addd extends React.Component {
 							type="checkbox"
 							color="secondary"
 						/>
-						Available <input type="file" name="file" onChange={this.onFile} />{" "}
+						Available 
+						<input type="file" name="file" onChange={this.onFile} />{" "}
 						<Button
 							type="submit"
 							fullWidth

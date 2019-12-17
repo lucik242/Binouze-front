@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Inscription from "../Screens/Clients/Inscription";
+import { Badge, Button } from 'reactstrap';
+
+//import Inscription from "../Screens/Clients/Inscription";
 
 
 
@@ -82,7 +84,13 @@ export default class Nav extends Component {
 								<a href="#" class="nav-link m-2 menu-item">Inscrire</a>
 							</li>
 							<li class="nav-item">
-								<Link to="/Basket" class="nav-link m-2 menu-item nav-active"><i class="fas fa-shopping-basket"></i></Link>
+							<Link to="/Basket" class="nav-link m-2 menu-item nav-active">
+								{/* <Badge color="secondary">{this.state.panier.length}</Badge>
+                                     */}
+							<Button color="secondary" outline>
+								<i class="fas fa-shopping-basket"/> <Badge color="secondary">0</Badge>
+							</Button>
+							</Link>																											
 							</li>
 						</ul>
 					  

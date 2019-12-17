@@ -1,6 +1,6 @@
 
 import React from 'react';
-import Home from './Screens/Home'
+import Home from './Home/Home'
 import Edit from './Screens/Edit'
 import Addd from './Screens/Addd'
 import AllPhone from './Screens/AllPhone'
@@ -10,8 +10,8 @@ import MainList from './FrontScreen/MainList'
 import BasketContainer from './FrontScreen/Basket'
 import ProduitCards from './FrontScreen/ProduitCards'
 import BasketStock from './FrontScreen/BasketCard'
-import Inscription from './Screens/Clients/Inscription'
-import Logo from './Screens/Logo'
+import Logo from './Home/Logo'
+import FrontImg from './Home/FrontImg'
 import "./App.css";
 
 import {
@@ -31,8 +31,8 @@ function App() {
 				<Router>
 					<Nav />
 						<Switch>
+					<Route exact path="/FrontImg" component={FrontImg} />
 					<Route exact path="/Logo" component={Logo} />
-					<Route exact path="/Inscription" component={Inscription} />
 					<Route exact path="/BasketCard" component={BasketStock} />
 						<Route exact path="/Basket" component={BasketContainer} />
 						<Route exact path="/ProduitCards" component={ProduitCards} />
