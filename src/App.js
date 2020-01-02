@@ -3,7 +3,7 @@ import React from 'react';
 import Home from './Home/Home'
 import Edit from './Screens/Edit'
 import Addd from './Screens/Addd'
-import AllPhone from './Screens/AllPhone'
+import AllArticle from './Screens/AllArticle'
 import Footer from './Components/Footer'
 import Nav from './Components/Nav'
 import MainList from './FrontScreen/MainList'
@@ -37,8 +37,8 @@ function App() {
 						<Route exact path="/Basket" component={BasketContainer} />
 						<Route exact path="/ProduitCards" component={ProduitCards} />
 						<Route exact path="/MainList" component={MainList} />
-							<Route exact path="/AddPhone" component={Addd} />
-							<Route exact path="/AllPhone" component={AllPhone} />
+							<Route exact path="/AddArticle" component={Addd} />
+							<Route exact path="/AllArticle" component={AllArticle} />
 							<Route exact path="/Edit" component={Edit} />
 								<Route exact path='/' component={Home} />
 						</Switch>

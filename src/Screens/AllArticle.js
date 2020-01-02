@@ -50,7 +50,7 @@ const useStyles = makeStyles(theme => ({
 
 }));
 
-class AllPhone extends Component {
+class AllArticle extends Component {
 
 
 	state = {
@@ -63,7 +63,7 @@ class AllPhone extends Component {
 		console.log("ici");
 		console.log(item);
 
-		axios.delete("http://localhost:8080/phone/deletePhone/" + item._id)
+		axios.delete("http://localhost:8080/article/deleteArticle/" + item._id)
 			.then(res => {
 				console.log(res.data);
 				this.componentDidMount();
@@ -74,7 +74,7 @@ class AllPhone extends Component {
 	}
 
 	componentDidMount() {
-		axios.get("http://localhost:8080/phone/allPhone")
+		axios.get("http://localhost:8080/article/allArticle")
 			.then(res => {
 				console.log(res);
 				this.setState({ items: res.data });
@@ -161,7 +161,7 @@ class AllPhone extends Component {
 				</Table>
 
 
-				<Link to={{ pathname: '/AddPhone' }}>
+				<Link to={{ pathname: '/AddArticle' }}>
 
 
 					<Button variant="contained"
@@ -180,4 +180,4 @@ class AllPhone extends Component {
 	}
 }
 
-export default withStyles(useStyles)(AllPhone);
+export default withStyles(useStyles)(AllArticle);

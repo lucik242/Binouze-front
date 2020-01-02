@@ -61,10 +61,10 @@ export default class Nav extends Component {
 								class="dropdown-menu"
 								aria-labelledby="navbarDropdownMenuLink"
 							>
-								<Link to="/AddPhone" class="dropdown-item" >
+								<Link to="/AddArticle" class="dropdown-item" >
 									Ajouter produit
 								</Link>
-								<Link to="/AllPhone" class="dropdown-item">
+								<Link to="/AllArticle" class="dropdown-item">
 								List de produits
 								</Link>
 								<Link to="/Edit" class="dropdown-item" >
@@ -77,11 +77,11 @@ export default class Nav extends Component {
 						<ul class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar"class="navbar-nav ml-auto flex-nowrap">
 							<li class="nav-item">
 								<Link to=" " class="nav-link m-2 menu-item">
-									Login
+					
 								</Link>
 							</li>
 							<li class="nav-item">
-								<a href="#" class="nav-link m-2 menu-item">Inscrire</a>
+								<a href="#" class="nav-link m-2 menu-item">Se connecter</a>
 							</li>
 							<li class="nav-item">
 							<Link to="/Basket" class="nav-link m-2 menu-item nav-active">

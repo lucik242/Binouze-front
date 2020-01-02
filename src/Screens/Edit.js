@@ -91,11 +91,11 @@ class Edit extends React.Component {
 
 	
 		axios
-			.put("http://localhost:8080/phone/modifPhone", dataProduct)
+			.put("http://localhost:8080/article/modifArticle", dataProduct)
 			.then(res => {
 				console.log(res.data);
 				this.setState({ loading: false });
-				window.location = "/AllPhone";
+				window.location = "/AllArticle";
 			});
 
 	};

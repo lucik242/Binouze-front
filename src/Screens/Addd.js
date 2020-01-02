@@ -80,9 +80,9 @@ class Addd extends React.Component {
 		data.append("file", this.state.file);
 
 		console.log("no-send", data);
-		axios.post("http://localhost:8080/phone/addPhone", data).then(res => {
+		axios.post("http://localhost:8080/article/addArticle", data).then(res => {
 			console.log("send", res.data);
-			window.location = "/AllPhone";
+			window.location = "/AllArticle";
 		});
 	};
 	render() {

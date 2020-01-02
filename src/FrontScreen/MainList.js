@@ -13,7 +13,7 @@ class MainList extends Component {
 }
 
  componentDidMount() {
-  axios.get("http://localhost:8080/phone/allPhone")
+  axios.get("http://localhost:8080/article/allArticle")
    .then(res => {
     console.log(res);
     this.setState({ items: res.data });
