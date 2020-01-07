@@ -65,7 +65,7 @@ export default class Nav extends Component {
 									Ajouter produit
 								</Link>
 								<Link to="/AllArticle" class="dropdown-item">
-								List de produits
+								Liste de produits
 								</Link>
 								<Link to="/Edit" class="dropdown-item" >
 									Edit produit
@@ -81,7 +81,7 @@ export default class Nav extends Component {
 								</Link>
 							</li>
 							<li class="nav-item">
-								<a href="#" class="nav-link m-2 menu-item">Se connecter</a>
+								<Link to="/SeConnecter" class="nav-link m-2 menu-item">Se connecter</Link>
 							</li>
 							<li class="nav-item">
 							<Link to="/Basket" class="nav-link m-2 menu-item nav-active">

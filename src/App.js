@@ -12,6 +12,9 @@ import ProduitCards from './FrontScreen/ProduitCards'
 import BasketStock from './FrontScreen/BasketCard'
 import Logo from './Home/Logo'
 import FrontImg from './Home/FrontImg'
+import UserInscription from './UserConnection/UserInscription'
+import UserLogin from './UserConnection/UserLogin'
+import SeConnecter from './UserConnection/SeConnecter'
 import "./App.css";
 
 import {
@@ -31,6 +34,9 @@ function App() {
 				<Router>
 					<Nav />
 						<Switch>
+					<Route exact path="/SeConnecter" component={SeConnecter} />
+					<Route exact path="/Login" component={UserLogin} />
+					<Route exact path="/Inscription" component={UserInscription} />
 					<Route exact path="/FrontImg" component={FrontImg} />
 					<Route exact path="/Logo" component={Logo} />
 					<Route exact path="/BasketCard" component={BasketStock} />

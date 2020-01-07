@@ -61,6 +61,14 @@ ul {
 	margin: 20px;
 }
 
+#prix{
+	color:#8F1D14 !important;
+}
+#card{
+	color:#e6dedd !important;
+	font-size: 80%;
+}
+
 /* Basket and BasketCard  */
 .cardB{
 	margin: 20px;
@@ -71,6 +79,17 @@ ul {
 }
 .buttonD{
 	float: right;
+}
+
+#panier{
+padding-top: 3vh; 
+padding-bottom: 4vh;
+}
+#panier h4{  
+		text-align: center !important;
+		color:#1b120f;
+		margin-top: 5vh;
+		margin-bottom: 5vh;
 }
 
 #tableProduct{
@@ -86,6 +105,8 @@ ul {
 .card-img{
 	height: 35vh;
 }
+
+/*home page*/
 .Home{
 	margin-top: 4vh;
 	color:#1b120f;
@@ -95,18 +116,25 @@ ul {
 	margin-top:5vh;
 	margin-bottom: 3vh;
 }
-/* .LogoHome{
-	width: 25vw;
-	height: 25vh;
 
-} */
-/* 
-.allPhone--button-add {
-  button {
-    display: block;
-    margin: auto;
-  }
-} */
+/*connection*/
+.SeConnecter{
+	margin-top: 4vh;
+	color:#1b120f;
 
+}
+.SeConnecter h3{
+
+	color:#8F1D14 !important;
+		text-align: center !important;
+	margin-top:5vh;
+	margin-bottom: 1vh;
+}
+.SeConnecter h4{
+
+	text-align: center !important;
+	margin-top:3vh;
+	margin-bottom: 3vh;
+}
 
 

@@ -33,14 +33,15 @@ export class Basket extends Component {
    })
   
   return (
-    <Container>
+    <Container id="panier">
+      <h4>PANIER → Livraison → Paiement </h4>
       {goods}
       <Row>
         <Col sm="12" md={{ size: 6, offset: 3 }}>
       <Link to='/MainList'>
             <Button style={{ backgroundColor: '#f89d13' }} className="buttonB">Continuer vos achat</Button>
      </Link>
-      <Link to=' '>
+      <Link to='/SeConnecter'>
             <Button style={{ backgroundColor: '#f89d13' }} className="buttonB">Acheter</Button>
     </Link>
         </Col>

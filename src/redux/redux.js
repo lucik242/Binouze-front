@@ -11,15 +11,12 @@ export const deleteFromCart = product => ({
   product,
 });
 
-
-
 // reducers.js
 export const productReducer = (state = { 
   products: [],
-  //user: []
+
 }, action) => {
   console.log(action);
-
 
  switch (action.type) {
    case 'ADD_TO_CART':

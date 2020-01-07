@@ -88,7 +88,7 @@ class AllArticle extends Component {
 
 		return (
       <div>
-							<h2>List de produits</h2>
+							<h2>Liste de produits</h2>
 			<Paper id="tableProduct" className={classes.root}>
   
 				<Table className={classes.table} aria-label="customized table">

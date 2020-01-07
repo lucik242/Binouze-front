@@ -27,10 +27,10 @@ render() {
          <Button style={{ backgroundColor: '#8f1d14' }} className="buttonD" onClick={() => { console.log(this.props.deleteFromCart({ ...this.props.good })) }}>X</Button>
        </Link>
      <CardTitle> Produit: {this.props.good.name}</CardTitle>
-     <CardText>Type:{this.props.good.type}</CardText>
-       <CardText>Prix: {this.props.good.price} € </CardText>
+       <CardText id="card">Type:{this.props.good.type}</CardText>
+       <CardText id="card">Prix: {this.props.good.price} € </CardText>
        <FormGroup>
-         <Label for="exampleSelect">Select</Label>
+         <Label id="card" for="exampleSelect">Select
          <Input type="select" name="select" id="exampleSelect">
            <option>1</option>
            <option>2</option>
@@ -39,7 +39,8 @@ render() {
            <option>5</option>
            <option>6</option>
          </Input>
-         <CardText>Total:      € </CardText>
+         </Label>
+         <CardText id="card">Total:      € </CardText>
        </FormGroup>
     </Card>
      
