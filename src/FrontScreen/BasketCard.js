@@ -10,14 +10,6 @@ constructor(props){
  super(props);
 }
 
-//  total = () =>{
-//    let prix = { this.props.good.price };
-//   return  (prix * 2)
-// }
-
-
-  
-
 render() {
  
  return(
@@ -49,14 +41,14 @@ render() {
 }
 }
 
+//Redux
 const mapStateToProps = state => ({
   products: state,
 });
 
 const mapDispatchToProps = {
   deleteFromCart,
-  //addToCart,
-  //getCart
+  
 };
 
 const BasketStock = connect(
@@ -67,4 +59,3 @@ const BasketStock = connect(
 export default BasketStock;
 
 
-//export default BasketCard;

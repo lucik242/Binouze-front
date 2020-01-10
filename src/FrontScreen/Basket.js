@@ -6,24 +6,15 @@ import { Link } from 'react-router-dom';
 import { addToCart } from '../redux/redux'; // with addToCart  add another action
 //import { Link } from 'react-router-dom';
 
-
+// shoping basket - main page
 export class Basket extends Component {
  constructor(props) {
   super(props);
-  //  this.state = {
-  //    ...this.props.location.state.foo
-  //  }
-  //let state = this.setState(props)
-
  }
 
- 
  render() {
-  //let prod = this.props.location.state.foo
-  //console.log(this.props.location.state.foo)
-  
+
    console.log(this.props.products.productReducer.products)
-    // let goods = "lol"
    let goods = this.props.products.productReducer.products.map(good => {
     return(
         <Col sm="12" md={{ size: 6, offset: 3 }}>
@@ -47,28 +38,20 @@ export class Basket extends Component {
         </Col>
       </Row>
     </Container>
-    // <div>
-    // {/* <Link to='/MainList'>
-    //   <Button>Continuer vos achat</Button>
-    // </Link>
-
-    // <Link to=' '>
-    //   <Button>Acheter</Button>
-    // </Link>
-    // </div > */}
+  
   );
    
-  
  }
 }
 
+// redux
 const mapStateToProps = state => ({
   products: state,
 });
 
 const mapDispatchToProps = {
   addToCart,
-  //getCart
+
 };
 
 const BasketContainer = connect(
@@ -79,4 +62,3 @@ const BasketContainer = connect(
 export default BasketContainer;
 
 
-//export default Basket;

@@ -12,7 +12,6 @@ export default class Home extends Component {
 					<Logo />
 				 <h3>"New experience to drink Czech beers."</h3>
 					<FrontImg />
-				{/* <img src="https://info24sata.com/wp-content/uploads/2019/09/pivo.jpg" alt=" "/> */}
 			</div>
 		);
 	}

@@ -8,8 +8,6 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
-
-//import Link from '@material-ui/core/Link';
 import { Link } from 'react-router-dom';
 import axios from "axios";
 import { createMuiTheme } from '@material-ui/core/styles';
@@ -84,7 +82,6 @@ class AllArticle extends Component {
 
 	render() {
 		const { classes } = this.props;
-		//const Items = this.state.items.map((item, i)=> (
 
 		return (
       <div>
@@ -120,9 +117,6 @@ class AllArticle extends Component {
 										src={`http://localhost:8080/${item.file}`}
 										alt=""
 									/>
-									
-									{/* <img src={`/${item.file}`} />   */}
-								{/* <StyledTableCell><img src={`${item.file}`}/>   */}
 								</StyledTableCell>
 								<StyledTableCell>{item.price}</StyledTableCell>
 								<StyledTableCell>{item.rating}</StyledTableCell>

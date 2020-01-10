@@ -2,15 +2,14 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Badge, Button } from 'reactstrap';
 
-//import Inscription from "../Screens/Clients/Inscription";
-
-
 
 export default class Nav extends Component {
 	render() {
 		return (
-
+				
+			//menu
 			<nav  id='menu' class="navbar navbar-expand-lg navbar-dark ">
+		
 				<Link  to="/" class="navbar-brand" >
 					<i class="fas fa-home"></i>
 				</Link>
@@ -26,7 +25,7 @@ export default class Nav extends Component {
 				>
 					<span class="navbar-toggler-icon"></span>
 				</button>
-
+   
 				<div class="collapse navbar-collapse" id="navbarNavDropdown">
 					<ul class="navbar-nav">
 						{/* <li class="nav-item active">
@@ -67,15 +66,16 @@ export default class Nav extends Component {
 								<Link to="/AllArticle" class="dropdown-item">
 								Liste de produits
 								</Link>
-								<Link to="/Edit" class="dropdown-item" >
+								{/* <Link to="/Edit" class="dropdown-item" >
 									Edit produit
-								</Link>
+								</Link> */}
 							</div>
 						</li>
 					</ul>
 		
 						<ul class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar"class="navbar-nav ml-auto flex-nowrap">
 							<li class="nav-item">
+								
 								<Link to=" " class="nav-link m-2 menu-item">
 					
 								</Link>
@@ -88,7 +88,11 @@ export default class Nav extends Component {
 								{/* <Badge color="secondary">{this.state.panier.length}</Badge>
                                      */}
 							<Button color="secondary" outline>
-								<i class="fas fa-shopping-basket"/> <Badge color="secondary">0</Badge>
+									<i class="fas fa-shopping-basket" /> <Badge color="secondary"> 0
+									{/* {this.state.panier.reduce(
+										(acc, current) => acc + current.prix,
+										0)} */}
+									</Badge>
 							</Button>
 							</Link>																											
 							</li>

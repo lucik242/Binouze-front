@@ -25,12 +25,9 @@ import {
 } from "react-router-dom";
 
 
-
 function App() {
-// class App extends React.Component {
-		return(
 
-			// return () => {
+		return(
 				<Router>
 					<Nav />
 						<Switch>
@@ -48,11 +45,10 @@ function App() {
 							<Route exact path="/Edit" component={Edit} />
 								<Route exact path='/' component={Home} />
 						</Switch>
-			
 					<Footer />
 				</Router>
 		)
-		// }
+	
 	}
 
 export default App;
