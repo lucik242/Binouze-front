@@ -9,7 +9,7 @@ export default class Nav extends Component {
 				
 			//menu
 			<nav  id='menu' class="navbar navbar-expand-lg navbar-dark ">
-		
+				
 				<Link  to="/" class="navbar-brand" >
 					<i class="fas fa-home"></i>
 				</Link>
