@@ -8,7 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { withStyles } from "@material-ui/core/styles";
-
+import { server } from '../config/config';
 import axios from "axios";
 
 const useStyles = makeStyles(theme => ({
@@ -71,7 +71,7 @@ class Edit extends React.Component {
 
 	
 		axios
-			.put("http://localhost:8080/article/modifArticle", dataProduct)
+			.put(server.URL + "/article/modifArticle", dataProduct)
 			.then(res => {
 				console.log(res.data);
 				this.setState({ loading: false });
@@ -80,6 +80,7 @@ class Edit extends React.Component {
 
 	};
 	render() {
+		console.log(server.URL);
 		const { classes } = this.props;
 
 		return (

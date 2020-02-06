@@ -7,8 +7,13 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { withStyles } from "@material-ui/core/styles";
+import { server } from '../config/config';
+
 
 import axios from "axios";
+
+//const API_URL = process.env.REACT_APP_API_URL;
+
 
 const useStyles = makeStyles(theme => ({
 	"@global": {
@@ -39,6 +44,9 @@ class Addd extends React.Component {
 	constructor(props) {
 		super(props);
 
+			// this.URL = "http://localhost:8080";
+		// this.state = {URL: []};
+
 		this.state = {
 			name: "",
 			type: "",
@@ -50,6 +58,9 @@ class Addd extends React.Component {
 			loaded: null,
 			file: ""
 		};
+		
+
+
 	}
 
 	handleChange = event => {
@@ -80,12 +91,23 @@ class Addd extends React.Component {
 		data.append("file", this.state.file);
 
 		console.log("no-send", data);
-		axios.post("http://localhost:8080/article/addArticle", data).then(res => {
+
+		axios.post(server.URL + "/article/addArticle", data).then(res => {
+			
 			console.log("send", res.data);
 			window.location = "/AllArticle";
 		});
+
+		
+  // axios.post("http://localhost:8080/article/addArticle", data).then(res => {
+		// 	console.log("send", res.data);
+		// 	window.location = "/AllArticle";
+		// });
 	};
 	render() {
+		console.log(server.URL);
+		
+
 		const { classes } = this.props;
 		return (
 			<div>

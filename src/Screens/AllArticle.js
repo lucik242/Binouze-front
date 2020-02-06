@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
 import axios from "axios";
 import { createMuiTheme } from '@material-ui/core/styles';
 import yellow from '@material-ui/core/colors/yellow';
+import { server } from '../config/config';
 
 const theme = createMuiTheme({
 	palette: {
@@ -49,19 +50,18 @@ const useStyles = makeStyles(theme => ({
 }));
 
 class AllArticle extends Component {
+	
 
 
 	state = {
 		items: [],
-
-
 	};
 
 	delete(item) {
 		console.log("ici");
 		console.log(item);
 
-		axios.delete("http://localhost:8080/article/deleteArticle/" + item._id)
+		axios.delete(server.URL + "/article/deleteArticle/" + item._id)
 			.then(res => {
 				console.log(res.data);
 				this.componentDidMount();
@@ -72,7 +72,7 @@ class AllArticle extends Component {
 	}
 
 	componentDidMount() {
-		axios.get("http://localhost:8080/article/allArticle")
+		axios.get(server.URL +"/article/allArticle")
 			.then(res => {
 				console.log(res);
 				this.setState({ items: res.data });
@@ -81,6 +81,7 @@ class AllArticle extends Component {
 
 
 	render() {
+		console.log(server.URL);
 		const { classes } = this.props;
 
 		return (
@@ -114,7 +115,7 @@ class AllArticle extends Component {
 								<StyledTableCell>
 									<img
 										className="allphone-img"
-										src={`http://localhost:8080/${item.file}`}
+										src={server.URL +`/${item.file}`}
 										alt=""
 									/>
 								</StyledTableCell>

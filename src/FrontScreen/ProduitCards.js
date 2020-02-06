@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 // import actions from "../redux/actions"
 import { connect } from 'react-redux';
 import { addToCart } from '../redux/redux';
+import { server } from '../config/config';
 
 
 export class ProduitCards extends Component {
@@ -15,6 +16,7 @@ export class ProduitCards extends Component {
  }
 
  render() {
+   console.log(server.URL);
    console.log(this.props.products)
  
   return (
@@ -22,7 +24,7 @@ export class ProduitCards extends Component {
     <Card >
         <CardImg top width="100%" 
           className="card-img"
-          src={`http://localhost:8080/${this.props.produit.file}`}
+          src={server.URL + `/${this.props.produit.file}`}
           alt=""
         />
         <CardBody style={{ backgroundColor: '#1b120f'}}>

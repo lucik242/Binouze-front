@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input, } from 'reactstrap';
+import { server } from '../config/config';
 import axios from 'axios';
 
 export default class UserInscription extends React.Component {
@@ -35,7 +36,7 @@ export default class UserInscription extends React.Component {
    email: this.state.email,
    password: this.state.password
   };
-  axios.post(`http://localhost:8080/users/users`, dataUser)
+  axios.post(server.URL + `/users/users`, dataUser)
    .then(res => {
     console.log(res);
     console.log(res.dataUser)
@@ -45,6 +46,7 @@ export default class UserInscription extends React.Component {
  };
 
  render() {
+   console.log(server.URL)
   return (
    <Form onSubmit={this.handleSubmit} id='inscrip'>
     <h3>Inscription</h3>

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input, } from 'reactstrap';
+import { server } from '../config/config';
 import axios from 'axios';
 
 export class UserLogin extends Component {
@@ -30,7 +31,7 @@ export class UserLogin extends Component {
    password: this.state.password
   };
 
-  axios.post(`http://localhost:8080/auth/auth`, dataLog)
+  axios.post(server.URL + `/auth/auth`, dataLog)
    .then(res => {
     console.log(res);
     console.log(res.data);
@@ -38,6 +39,7 @@ export class UserLogin extends Component {
    })
  };
  render() {
+   console.log(server.URL)
   return (
    <Form onSubmit={this.handleSubmit} id='inscrip'>
     <h3>Login</h3>

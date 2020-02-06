@@ -3,6 +3,7 @@ import AppContainer from './ProduitCards'
 import { Container, Row, Col, } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import axios from "axios";
+import { server } from '../config/config';
 
 class MainList extends Component {
   constructor() {
@@ -13,7 +14,7 @@ class MainList extends Component {
 }
 
  componentDidMount() {
-  axios.get("http://localhost:8080/article/allArticle")
+  axios.get(server.URL + "/article/allArticle")
    .then(res => {
     console.log(res);
     this.setState({ items: res.data });
@@ -22,6 +23,7 @@ class MainList extends Component {
 
 
  render () {
+   console.log(server.URL);
    let prodCards = this.state.items.map(produit => {
      return (
        <Col  xs='10' sm='6' md='3'>
