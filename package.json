@@ -45,10 +45,10 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Jega1/Test_technique_front.git"
+    "url": "git+https://github.com/lucik242/eshop-front"
   },
   "bugs": {
-    "url": "https://github.com/Jega1/Test_technique_front/issues"
+    "url": "https://github.com/lucik242/eshop-frontt/issues"
   },
-  "homepage": "https://github.com/Jega1/Test_technique_front#readme"
+  "homepage": "https://github.com/lucik242/eshop-frontt#readme"
 }
