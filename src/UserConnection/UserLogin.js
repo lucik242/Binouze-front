@@ -35,7 +35,8 @@ export class UserLogin extends Component {
    .then(res => {
     console.log(res);
     console.log(res.data);
-    window.location = "/MainList";
+     window.location = "/MainList";
+    // this.props.history.push('/MainList');
    })
  };
  render() {

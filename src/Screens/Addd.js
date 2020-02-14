@@ -95,7 +95,8 @@ class Addd extends React.Component {
 		axios.post(server.URL + "/article/addArticle", data).then(res => {
 			
 			console.log("send", res.data);
-			window.location = "/AllArticle";
+			// window.location = "/AllArticle";
+			this.props.history.push('/AllArticle');
 		});
 
 		

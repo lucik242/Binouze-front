@@ -36,13 +36,18 @@ export default class UserInscription extends React.Component {
    email: this.state.email,
    password: this.state.password
   };
+  
   axios.post(server.URL + `/users/users`, dataUser)
    .then(res => {
-    console.log(res);
-    console.log(res.dataUser)
+    // console.log(res);
+    // console.log(res.dataUser);
     console.log(res.data);
+    //  this.props.history.push('/MainList');
     window.location = "/MainList";
-   })
+     
+   });
+ 
+
  };
 
  render() {

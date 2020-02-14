@@ -75,7 +75,8 @@ class Edit extends React.Component {
 			.then(res => {
 				console.log(res.data);
 				this.setState({ loading: false });
-				window.location = "/AllArticle";
+				this.props.history.push('/AllArticle');
+				// window.location = "/AllArticle";
 			});
 
 	};
